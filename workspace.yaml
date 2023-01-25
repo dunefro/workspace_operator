@@ -1,0 +1,20 @@
+apiVersion: environment.tf.operator.com/v1alpha1
+kind: Workspace
+metadata:
+  name: notepad
+spec:
+  labels:
+    deployment: "minikube"
+    environment: "test"
+    owner: "truefoundry"
+  annotations:
+    task.crd: "vedant"
+  name: "test"
+  resources:
+    memory: "256Mi"
+    cpu: "800m"
+    disk: "10Gi"
+  users:
+    admin: "userAdmin"
+    editor: "user2"
+    viewer: "user3"
