@@ -1,0 +1,40 @@
+# permissions to do leader election.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: role
+    app.kubernetes.io/instance: namespace-cluster-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: workspace-operator
+    app.kubernetes.io/part-of: workspace-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: namespace-clusterrole
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - "*"
+  # - namespaces
+  # - resourcequotas
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - "rbac.authorization.k8s.io"
+  resources:
+  - roles
+  - rolebindings
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
